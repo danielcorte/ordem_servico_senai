@@ -19,4 +19,9 @@ urlpatterns = [
     path('patrimonios', patrimonios_view.PatrimoniosListCreateView.as_view()),
     path('patrimonios/id/<int:pk>', patrimonios_view.PatrimoniosDetailView.as_view()),
     path('patrimonios/search/', patrimonios_view.PatrimoniosSearchView.as_view()),
+
+    path('ambientes', ambientes_view.AmbientesListCreateView.as_view()),
+    path('ambientes/id/<int:pk>', ambientes_view.AmbientesDetailView.as_view()),
+    path('ambientes/search/', ambientes_view.AmbientesSearchView.as_view()),
+    
 ]
