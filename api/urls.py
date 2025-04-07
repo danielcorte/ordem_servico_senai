@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView, TokenRefreshView, TokenVerifyView
 )
 
-from .views import gestores_view, manutentores_view, patrimonios_view, ambientes_view
+from .views import gestores_view, manutentores_view, patrimonios_view, ambientes_view, ordemservico_view
 
 urlpatterns = [
     
@@ -23,5 +23,11 @@ urlpatterns = [
     path('ambientes', ambientes_view.AmbientesListCreateView.as_view()),
     path('ambientes/id/<int:pk>', ambientes_view.AmbientesDetailView.as_view()),
     path('ambientes/search/', ambientes_view.AmbientesSearchView.as_view()),
+
+    path('ordemservico', ordemservico_view.OrdemServicoListCreateView.as_view()),
+    path('ordemservico/id/<int:pk>', ordemservico_view.OrdemServicoDetailView.as_view()),
+    path('ordemservico/search/', ordemservico_view.OrdemServicoSearchView.as_view()),
+
     
+
 ]
