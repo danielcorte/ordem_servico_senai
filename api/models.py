@@ -13,4 +13,8 @@ class Manutentores(models.Model):
     nome = models.CharField()
     area = models.CharField()
     gestor = models.ForeignKey(Gestores, on_delete=models.CASCADE)
-    
+
+class Patrimonios(models.Model):
+    ni = models.CharField()
+    descricao = models.CharField()
+    localizacao = models.CharField()
