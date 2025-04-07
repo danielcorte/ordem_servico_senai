@@ -8,3 +8,9 @@ class Gestores(models.Model):
     area = models.CharField()
     cargo = models.CharField()
 
+class Manutentores(models.Model):
+    ni = models.CharField()
+    nome = models.CharField()
+    area = models.CharField()
+    gestor = models.ForeignKey(Gestores, on_delete=models.CASCADE)
+    
