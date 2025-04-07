@@ -18,3 +18,8 @@ class Patrimonios(models.Model):
     ni = models.CharField()
     descricao = models.CharField()
     localizacao = models.CharField()
+
+class Ambientes(models.Model):
+    ni = models.CharField()
+    nome = models.CharField()
+    responsavel = models.CharField()
