@@ -28,6 +28,8 @@ urlpatterns = [
     path('ordemservico/id/<int:pk>', ordemservico_view.OrdemServicoDetailView.as_view()),
     path('ordemservico/search/', ordemservico_view.OrdemServicoSearchView.as_view()),
 
-    
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('token/verify/', TokenVerifyView.as_view(), name='token_verify')
 
 ]
