@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,15 +31,25 @@ INSTALLED_APPS = [
     'api',
     'rest_framework_simplejwt',
     'corsheaders',
-    'django_filters'
+    'django_filters',
 
 ]
+
+# # Configurar URL de Login e Logout
+# LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/login/'
+
+# # Sistema de e-mails (para reset de senha)
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# SITE_ID = 1
+
+# AUTH_USER_MODEL = 'api.Usuario'
 
 REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
 
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
 

@@ -49,3 +49,4 @@ class OrdemServico(models.Model):
     manutentor = models.ForeignKey(Manutentores, on_delete=models.CASCADE)
     responsavel = models.CharField(max_length=255),
     prioridade = models.CharField(max_length=5, choices=PRIORIDADE)
+
