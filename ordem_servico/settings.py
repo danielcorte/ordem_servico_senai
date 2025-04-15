@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'django_filters',
 
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
 # SITE_ID = 1
 
 # AUTH_USER_MODEL = 'api.Usuario'
+
+AUTH_USER_MODEL = 'api.Usuario'
 
 REST_FRAMEWORK = {
 

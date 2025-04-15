@@ -1,32 +1,22 @@
 from rest_framework import serializers
-from .models import Gestores, Manutentores, Patrimonios, Ambientes, OrdemServico
+from .models import Gestores, Manutentores, Patrimonios, Ambientes, OrdemServico, Usuario
 
-from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 
-User = get_user_model()
-
-class UsuarioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'nivel']
-
-class RegistroSerializer(serializers.ModelSerializer):
+class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    password2 = serializers.CharField(write_only=True, required=True)
-
+    
     class Meta:
-        model = User
-        fields = ['username', 'email', 'password', 'password2', 'nivel']
-
-    def validate(self, data):
-        if data['password'] != data['password2']:
-            raise serializers.ValidationError({"password": "As senhas não coincidem"})
-        return data
-
+        model = Usuario
+        fields = ('username', 'email', 'password', 'role')
+    
     def create(self, validated_data):
-        validated_data.pop('password2')
-        user = User.objects.create_user(**validated_data)
+        user = Usuario.objects.create_user(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            password=validated_data['password'],
+            role=validated_data['role']
+        )
         return user
     
 

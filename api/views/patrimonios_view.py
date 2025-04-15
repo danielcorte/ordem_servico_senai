@@ -7,6 +7,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
+import django_filters
 
 class PatrimoniosDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Patrimonios.objects.all()

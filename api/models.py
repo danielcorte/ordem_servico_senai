@@ -1,6 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+class Usuario(AbstractUser):
+    ROLE_CHOICES = [
+        ('admin', 'Administrador'),
+        ('manutentor', 'Manutentor'),
+        ('gestor', 'Gestor'),
+        ('default', 'Default'),
+    ]
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='default')
 
 class Gestores(models.Model):
     ni = models.CharField(max_length=15)
